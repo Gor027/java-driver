@@ -142,7 +142,7 @@ jobs:
           sudo sh -c "echo 'deb http://security.ubuntu.com/ubuntu xenial-security main' >> /etc/apt/sources.list"
           sudo apt-get update
           sudo apt-get install libssl1.0.0
-          pip3 install https://github.com/scylladb/scylla-ccm/archive/master.zip
+          pip3 install https://github.com/fruch/scylla-ccm/archive/fix_sni_port_setup.zip
 
       - name: Run integration tests on Cassandra (${{ matrix.cassandra-version }})
         run: mvn -B verify -Pshort -Dcassandra.version=${{ matrix.cassandra-version }} -Dfmt.skip=true -Dclirr.skip=true -Danimal.sniffer.skip=true
@@ -199,7 +199,7 @@ jobs:
           sudo sh -c "echo 'deb http://security.ubuntu.com/ubuntu xenial-security main' >> /etc/apt/sources.list"
           sudo apt-get update
           sudo apt-get install libssl1.0.0
-          pip3 install https://github.com/scylladb/scylla-ccm/archive/master.zip
+          pip3 install https://github.com/fruch/scylla-ccm/archive/fix_sni_port_setup.zip
           sudo sh -c "echo 2097152 >> /proc/sys/fs/aio-max-nr"
 
       - name: Run integration tests on Scylla (${{ matrix.scylla-version }})
